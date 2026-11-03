@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbería El Clásico | Estilo y Tradición</title>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #c5a059;
+            --light-color: #f4f4f4;
+            --text-color: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Encabezado */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Sección Hero */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 0.8rem 2rem;
+            border: none;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: opacity 0.3s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Secciones Generales */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        section h3 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        section h3::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Cuadrícula de Cortes (Servicios) */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: calc(100% - 220px);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+        }
+
+        .price {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        /* Sección de Precios Rápidos */
+        .tabla-precios {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .precio-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .precio-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado -->
+    <header>
+        <h1>Barbería El Clásico</h1>
+        <nav>
+            <a href="#cortes">Cortes</a>
+            <a href="#precios">Precios</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- Sección Principal (Hero) -->
+    <div class="hero">
+        <h2>Tu estilo, nuestra pasión</h2>
+        <p>Los mejores cortes clásicos y modernos con un toque tradicional.</p>
+        <a href="#contacto" class="btn">Reserva tu cita</a>
+    </div>
+
+    <!-- Sección de Tipos de Cortes y Fotos -->
+    <section id="cortes">
+        <h3>Nuestros Estilos</h3>
+        <div class="grid">
+            <!-- Corte 1 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=600&q=80" alt="Corte Fade">
+                <div class="card-content">
+                    <div>
+                        <h4 class="card-title">Fade / Degradado</h4>
+                        <p class="card-desc">Un desvanecimiento limpio y preciso en los laterales, adaptado a la altura que prefieras (Low, Mid o High Fade).</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="price">$15.00</span>
+                        <span style="font-size: 0.9rem; color: #888;">⏱ 30 min</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Corte 2 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=600&q=80" alt="Corte Clásico Pompadour">
+                <div class="card-content">
+                    <div>
+                        <h4 class="card-title">Clásico / Pompadour</h4>
+                        <p class="card-desc">Estilo elegante y tradicional con volumen en la parte superior y laterales peinados o recortados con tijera.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="price">$18.00</span>
+                        <span style="font-size: 0.9rem; color: #888;">⏱ 40 min</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Corte 3 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&q=80" alt="Arreglo de Barba">
+                <div class="card-content">
+                    <div>
+                        <h4 class="card-title">Diseño de Barba</h4>
+                        <p class="card-desc">Perfilado con navaja, recorte de volumen y aplicación de aceites hidratantes para un acabado impecable.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="price">$10.00</span>
+                        <span style="font-size: 0.9rem; color: #888;">⏱ 25 min</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Lista de Precios Completa -->
+    <section id="precios">
+        <h3>Lista de Precios</h3>
+        <div class="tabla-precios">
+            <div class="precio-item">
+                <span>Corte de Cabello (Clásico o Moderno)</span>
+                <span class="price">$15.00</span>
+            </div>
+            <div class="precio-item">
+                <span>Corte + Arreglo de Barba Completo</span>
+                <span class="price">$22.00</span>
+            </div>
+            <div class="precio-item">
+                <span>Arreglo y Perfilado de Barba</span>
+                <span class="price">$10.00</span>
+            </div>
+            <div class="precio-item">
+                <span>Corte Infantil (Menores de 12 años)</span>
+                <span class="price">$12.00</span>
+            </div>
+            <div class="precio-item">
+                <span>Lavado y Peinado Estilizado</span>
+                <span class="price">$8.00</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" style="text-align: center;">
+        <h3>¿Listo para un cambio de look?</h3>
+        <p style="margin-bottom: 1.5rem;">Visítanos en nuestra sucursal o contáctanos para agendar tu espacio.</p>
+        <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">📍 Dirección: Av. Principal #123, Ciudad</p>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem;">📞 Teléfono / WhatsApp: +123 456 7890</p>
+        <a href="https://wa.me/1234567890" class="btn" target="_blank">Escríbenos por WhatsApp</a>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2026 Barbería El Clásico. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
